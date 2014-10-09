@@ -1,0 +1,655 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass amsart
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Part II Integrable Systems
+\end_layout
+
+\begin_layout Author
+Lecturer: Dr Anthony Ashton
+\end_layout
+
+\begin_layout Date
+Michaelmas Term 2014
+\end_layout
+
+\begin_layout Section
+Integrability of ODEs
+\end_layout
+
+\begin_layout Subsection
+Vector fields and flow maps
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathbf{V}:\mathbb{R}^{m}\rightarrow\mathbb{R}^{n}$
+\end_inset
+
+ be a nice vector field, and consider unique solution 
+\begin_inset Formula $\mathbf{\dot{\mathbf{X}}}(t)\in\mathbb{R}^{m}$
+\end_inset
+
+ of ODE
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\dot{\mathbf{X}}=\mathbf{V}(\mathbf{x}),\quad\mathbf{X}(0)=\mathbf{x}_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Can write solution in form: 
+\begin_inset Formula $\mathbf{X}(t)=g^{t}\mathbf{x}_{0}$
+\end_inset
+
+, where 
+\begin_inset Formula $g^{t}:\mathbb{R}^{m}\rightarrow\mathbb{R}^{m}$
+\end_inset
+
+ is called the
+\series bold
+ flow map
+\series default
+.
+ The flow map has nice properties (proved in Example Sheet 1):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+g^{0}=I
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+g^{t+s}=g^{t}g^{s}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(g^{t}\right)^{-1}=g^{-t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We call 
+\begin_inset Formula $\mathbf{v}$
+\end_inset
+
+ the infinitesimal generator of 
+\begin_inset Formula $g^{t}$
+\end_inset
+
+, which comes from Taylor's theorem:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathbf{X}(\epsilon) & =g^{\epsilon}\mathbf{x}\\
+ & =\mathbf{x}(0)+\epsilon\dot{x}(0)+o(\epsilon^{2})\\
+ & =\mathbf{x}_{0}+\epsilon\mathbf{V}(\mathbf{x_{0}})+o(\epsilon^{2})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure(1)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathbf{V}_{1},\mathbf{V}_{2}:\mathbb{R}^{m}\rightarrow\mathbb{R}^{m}$
+\end_inset
+
+ be vector fields which generate flows 
+\begin_inset Formula $g_{1}^{t},g_{2}^{t}$
+\end_inset
+
+ respectively.
+ Define third vector field 
+\begin_inset Formula $\left[\mathbf{V}_{1},\mathbf{V}_{2}\right]:\mathbb{R}^{m}\rightarrow\mathbb{R}^{m}$
+\end_inset
+
+, called 
+\series bold
+commutator
+\series default
+ of 
+\begin_inset Formula $\mathbf{V}_{1},\mathbf{V}_{2}$
+\end_inset
+
+, by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left[\mathbf{V}_{1},\mathbf{V}_{2}\right](\mathbf{x}) & =\left(\mathbf{V}_{1}\cdot\frac{\partial}{\partial\mathbf{x}}\right)\mathbf{V}_{2}(\mathbf{x})-\left(\mathbf{V}_{2}\cdot\frac{\partial}{\partial\mathbf{x}}\right)\mathbf{V}_{1}(\mathbf{x})\\
+ & =\sum_{j=1}^{m}\left[\left(\mathbf{V}_{1}\right)_{j}\frac{\partial}{\partial x_{j}}\right]\mathbf{V}_{1}-\sum_{j=1}^{m}\left[\left(\mathbf{V}_{2}\right)_{j}\frac{\partial}{\partial x_{j}}\right]\mathbf{V}_{1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We often use the notation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial\mathbf{x}}=\left(\frac{\partial}{\partial x_{1}},\ldots,{}_{j}\frac{\partial}{\partial x_{n}}\right)^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We say that 
+\begin_inset Formula $\mathbf{V}_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{V}_{2}$
+\end_inset
+
+ commute if 
+\begin_inset Formula $\left[\mathbf{V}_{1},\mathbf{V}_{2}\right]=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+FACT: 
+\begin_inset Formula $\left[\mathbf{V}_{1},\mathbf{V}_{2}\right]=0$
+\end_inset
+
+ if and only if 
+\series bold
+
+\begin_inset Formula $g_{1}^{t}g_{2}^{s}=g_{2}^{s}g_{1}^{t}$
+\end_inset
+
+
+\series default
+.
+ i.e.
+ Generator commutes if and only if flows commutes.
+\end_layout
+
+\begin_layout Standard
+Figure(2)
+\end_layout
+
+\begin_layout Subsection
+Phase space and poisson brackets
+\end_layout
+
+\begin_layout Standard
+We will be interested in dynamical systems in a 
+\begin_inset Formula $2n$
+\end_inset
+
+-dimensional phase space, 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+.
+ Points in 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+ written in terms of the coordinates
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(\mathbf{q},\mathbf{p})=(q_{1},\ldots,q_{n},p_{1},\ldots,p_{n})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\mathbf{p}$
+\end_inset
+
+ is the generalised position, 
+\begin_inset Formula $\mathbf{q}$
+\end_inset
+
+ is the generalised momentum.
+\end_layout
+
+\begin_layout Standard
+Often we will write 
+\begin_inset Formula $\mathbf{x}=\left(\begin{array}{c}
+\mathbf{q}\\
+\mathbf{p}
+\end{array}\right)$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $2n\times2n$
+\end_inset
+
+ anti-symmetric matrix 
+\begin_inset Formula $J=\left(\begin{array}{cc}
+0 & I_{n}\\
+-I_{n} & 0
+\end{array}\right),$
+\end_inset
+
+ where 
+\begin_inset Formula $I_{n}=diag(\underbrace{1,\ldots,1}_{n})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For functions 
+\begin_inset Formula $f,g:\mathcal{M}\rightarrow\mathbb{R}$
+\end_inset
+
+ define the 
+\series bold
+Poisson-Bracket
+\series default
+ (another function)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left\{ f,g\right\}  & =\frac{\partial f}{\partial\mathbf{x}}\cdot J\frac{\partial g}{\partial\mathbf{x}}\\
+ & =\frac{\partial f}{\partial\mathbf{q}}\cdot\frac{\partial g}{\partial\mathbf{p}}-\frac{\partial f}{\partial\mathbf{p}}\cdot\frac{\partial g}{\partial\mathbf{q}}\\
+ & =\sum_{j=1}^{n}\left(\frac{\partial f}{\partial q_{i}}\cdot\frac{\partial g}{\partial p_{i}}-\frac{\partial f}{\partial p_{i}}\cdot\frac{\partial g}{\partial q_{i}}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Poisson bracket is linear in both arguments, it is 
+\series bold
+anti-symmetric
+\series default
+.
+ It satisfies the following identity:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{Leibniz rule:}\left\{ f,gh\right\} =\left\{ f,g\right\} h+\left\{ f,h\right\} g$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\text{Jacobi identity:}\left\{ f,\left\{ g,h\right\} \right\} +\left\{ g,\left\{ h,f\right\} \right\} +\left\{ h,\left\{ f,g\right\} \right\} =0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the 
+\begin_inset Formula $i$
+\end_inset
+
+th 
+\begin_inset Formula $\mathbf{q}$
+\end_inset
+
+-coordinate or 
+\begin_inset Formula $j$
+\end_inset
+
+th 
+\begin_inset Formula $\mathbf{p}$
+\end_inset
+
+-coordinate define functions on 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+.
+ So can compute the 
+\series bold
+fundamental poisson-brackets
+\series default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left\{ q_{i},p_{j}\right\}  & =\delta_{ij}\\
+\left\{ q_{i},q_{j}\right\}  & =0\\
+\left\{ p_{i},p_{j}\right\}  & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Hamiltonian Mechanics
+\end_layout
+
+\begin_layout Standard
+We will be interested in dynamical problems on 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+ that evolve according to 
+\series bold
+Hamilton's Equations
+\series default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\dot{\mathbf{q}}=\frac{\partial H}{\partial\mathbf{p}},\quad\dot{\mathbf{p}}=-\frac{\partial H}{\partial\mathbf{q}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $H:\mathcal{M}\rightarrow\mathbb{R}$
+\end_inset
+
+is some function.
+ i.e.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\dot{q_{i}}=\frac{\partial H}{\partial p_{i}},\quad\dot{P_{i}}=-\frac{\partial H}{\partial q_{i}},\quad i=1,\ldots,n
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In terms of 
+\begin_inset Formula $\mathbf{x}=\left(\begin{array}{c}
+\mathbf{q}\\
+\mathbf{p}
+\end{array}\right)$
+\end_inset
+
+, Hamilton's equation are
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\dot{\mathbf{x}}=J\frac{\partial H}{\partial\mathbf{x}}\equiv J\partial_{\mathbf{x}}H
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this is of the same form as the ODE in 1.1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathbf{V}(\mathbf{x})=J\frac{\partial H}{\partial\mathbf{x}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $f:\mathcal{M}\rightarrow\mathbb{R}$
+\end_inset
+
+, if 
+\begin_inset Formula $\mathbf{x}=\left(\begin{array}{c}
+\mathbf{q}\\
+\mathbf{p}
+\end{array}\right)$
+\end_inset
+
+ evolves according to Hamilton's equations, then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial t}f(\mathbf{q}(t),\mathbf{p}(t)) & =\mathbf{\dot{\mathbf{q}}}\cdot\frac{\partial g}{\partial\mathbf{q}}+\dot{\mathbf{p}}\cdot\frac{\partial g}{\partial\mathbf{p}}\\
+ & =\frac{\partial f}{\partial\mathbf{q}}\cdot\frac{\partial H}{\partial\mathbf{p}}-\frac{\partial f}{\partial\mathbf{p}}\cdot\frac{\partial H}{\partial\mathbf{q}}\\
+ & =\left\{ f,H\right\} 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Let 
+\begin_inset Formula $(\mathbf{q})=(q_{1},q_{2},q_{3})$
+\end_inset
+
+ be Cartesian coordinates.
+ Particles of unit mass under inference of potential 
+\begin_inset Formula $u(\mathbf{q})$
+\end_inset
+
+ evolves via
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\begin{equation}
+\ddot{\mathbf{q}}=-\frac{\partial u}{\partial\mathbf{q}}\label{eq:1.1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Define new coordinates: 
+\begin_inset Formula $\mathbf{p}=\dot{\mathbf{q}}$
+\end_inset
+
+.
+ Then can write:
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+\dot{\mathbf{q}}\\
+\dot{\mathbf{p}}
+\end{array}\right)=\left(\begin{array}{c}
+\mathbf{p}\\
+-\frac{\partial u}{\partial\mathbf{q}}
+\end{array}\right)=J\frac{\partial H}{\partial\mathbf{x}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+where 
+\begin_inset Formula $H:\mathcal{M}\rightarrow\mathbb{R}$
+\end_inset
+
+ is the engery 
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+H(\mathbf{p},\mathbf{q})=\frac{1}{2}\left|\mathbf{p}\right|^{2}+u(\mathbf{q})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+So Equation 
+\begin_inset Formula $(\ref{eq:1.1})$
+\end_inset
+
+ can be written in Hamilton form.
+\end_layout
+
+\end_body
+\end_document
